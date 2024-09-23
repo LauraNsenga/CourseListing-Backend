@@ -1,7 +1,8 @@
 const db = require("../models");
-const Tutorial = db.tutorials;
+const Course = db.courses;
 const Op = db.Sequelize.Op;
-// Create and Save a new Tutorial
+
+
 exports.create = (req, res) => {
   // Validate request
   if (!req.body.title) {
@@ -11,13 +12,13 @@ exports.create = (req, res) => {
     return;
   }
   // Create a Tutorial
-  const tutorial = {
+  const course = {
     title: req.body.title,
     description: req.body.description,
     published: req.body.published ? req.body.published : false
   };
-  // Save Tutorial in the database
-  Tutorial.create(tutorial)
+ 
+  Tutorial.create(course)
     .then(data => {
       res.send(data);
     })
@@ -43,7 +44,7 @@ exports.findAll = (req, res) => {
       });
     });
 };
-// Find a single Tutorial with an id
+
 exports.findOne = (req, res) => {
   const id = req.params.id;
   Tutorial.findByPk(id)
@@ -110,7 +111,7 @@ exports.delete = (req, res) => {
 };
 // Delete all Tutorials from the database.
 exports.deleteAll = (req, res) => {
-  Tutorial.destroy({
+  course.destroy({
     where: {},
     truncate: false
   })
