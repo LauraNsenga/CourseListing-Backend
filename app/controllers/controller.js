@@ -17,7 +17,7 @@ exports.create = (req, res) => {
     published: req.body.published ? req.body.published : false
   };
  
-  Tutorial.create(course)
+  Course.create(course)
     .then(data => {
       res.send(data);
     })
@@ -28,7 +28,7 @@ exports.create = (req, res) => {
       });
     });
 };
-// Retrieve all Tutorials from the database.
+// Retrieve all Courses from the database.
 exports.findAll = (req, res) => {
   const title = req.query.title;
   var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
@@ -62,7 +62,7 @@ exports.findOne = (req, res) => {
       });
     });
 };
-// Update a Tutorial by the id in the request
+// Update a Course by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
   Tutorial.update(req.body, {
@@ -85,7 +85,7 @@ exports.update = (req, res) => {
       });
     });
 };
-// Delete a Tutorial with the specified id in the request
+// Delete a Course with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
   Tutorial.destroy({
@@ -108,7 +108,7 @@ exports.delete = (req, res) => {
       });
     });
 };
-// Delete all Tutorials from the database.
+// Delete all Course from the database.
 exports.deleteAll = (req, res) => {
   course.destroy({
     where: {},
@@ -124,7 +124,7 @@ exports.deleteAll = (req, res) => {
       });
     });
 };
-// Find all published Tutorials
+// Find all published Courses
 exports.findAllPublished = (req, res) => {
   Tutorial.findAll({ where: { published: true } })
     .then(data => {
