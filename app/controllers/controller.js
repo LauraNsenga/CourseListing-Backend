@@ -5,7 +5,7 @@ const Op = db.Sequelize.Op;
 // Create and Save a new course
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.level || !req.body.dept || !req.body.coursenum || !req.body.hours) {
+  if (!req.body.level && !req.body.dept && !req.body.coursenum && !req.body.hours) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
@@ -16,6 +16,7 @@ exports.create = (req, res) => {
   const course = {
     dept: req.body.dept,
     coursenum: req.body.coursenum,
+    coursename:req.body.coursename,
     level: req.body.level,
     hours: req.body.hours,
     description: req.body.description,

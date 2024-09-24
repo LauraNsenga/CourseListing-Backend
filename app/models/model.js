@@ -4,6 +4,11 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
       allowNull: false,
     },
+
+    coursename:{
+      type:  Sequelize.STRING,
+    },
+    
     dept: {
       type: Sequelize.STRING,
       allowNull: false,
