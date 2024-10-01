@@ -4,36 +4,35 @@ const Op = db.Sequelize.Op;
 
 // Create and Save a new course
 exports.create = (req, res) => {
-  // Validate request
-  if (!req.body.level && !req.body.dept && !req.body.coursenum && !req.body.hours) {
+  if (!req.body.name && !req.body.description && !req.body.credits && !req.body.level && !req.body.hours) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
     return;
   }
 
-  // Create a course
   const course = {
-    dept: req.body.dept,
-    coursenum: req.body.coursenum,
-    coursename:req.body.coursename,
+    name: req.body.name, // Changed from coursename to name
+    description: req.body.description,
+    credits: req.body.credits,
     level: req.body.level,
     hours: req.body.hours,
-    description: req.body.description,
+    dept: req.body.dept, // Include dept field
+    coursenum: req.body.coursenum, // Include coursenum field
   };
+  
 
-  // Save Course in the database
   Course.create(course)
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the course.",
+        message: err.message || "Some error occurred while creating the course.",
       });
     });
 };
+
 
 // Retrieve all Courses from the database
 exports.findAll = (req, res) => {
