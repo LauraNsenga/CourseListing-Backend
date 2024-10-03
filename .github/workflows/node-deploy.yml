@@ -34,9 +34,9 @@ jobs:
           privateKey: ${{ secrets.SERVER_SSH_KEY }}
           debug: false
           command: |
-            cd nodeapps/project2/2021/t{number}
+            cd nodeapps/project2/2021/t9
             npm install
             sudo systemctl stop course-backend
-            sudo cp course-backend.service /lib/systemd/system/course-backend-t{number}.service
+            sudo cp course-backend.service /lib/systemd/system/course-backend-t9.service
             sudo systemctl daemon-reload
-            sudo systemctl start course-backend-t{number}
+            sudo systemctl start course-backend-t9
