@@ -35,10 +35,12 @@ exports.create = (req, res) => {
 
 
 // Retrieve all Courses from the database
+// Retrieve all Courses with optional filter by coursenum
 exports.findAll = (req, res) => {
   const coursenum = req.query.coursenum;
+
   var condition = coursenum
-    ? { coursenum: { [Op.like]: `%${coursenum}%`, } ,}
+    ? { coursenum: { [Op.like]: `%${coursenum}%` } }  // Allow partial match
     : null;
 
   Course.findAll({ where: condition })
