@@ -4,7 +4,7 @@ const Op = db.Sequelize.Op;
 
 // Create and Save a new course
 exports.create = (req, res) => {
-  if (!req.body.name && !req.body.description && !req.body.credits && !req.body.level && !req.body.hours) {
+  if (!req.body.name || !req.body.description || !req.body.credits || !req.body.level || !req.body.hours) {
     res.status(400).send({
       message: "Content can not be empty!",
     });
