@@ -7,7 +7,6 @@ Type=simple
 User=ubuntu
 WorkingDirectory=/home/ubuntu/nodeapps/course-backend/
 ExecStart=/usr/bin/npm run start
-Restart=on-failure
  
 [Install]
 WantedBy=multi-user.target
