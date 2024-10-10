@@ -19,7 +19,7 @@ module.exports = app => {
   app.use('/course', router);
   //app.use("/course", router);
   router.delete("/course/", course.deleteAll);
-  app.use('/course', router);
+  app.use('/course-t7', router);
   //app.use("/course/course", router);
 
 };
