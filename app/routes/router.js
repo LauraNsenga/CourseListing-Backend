@@ -16,11 +16,12 @@ module.exports = app => {
   router.delete("/:id", course.delete);
   // Delete all course
   router.delete("/", course.deleteAll);
-  app.use('/course', router);
+
+  app.use('/course-t9/course', router);
   //app.use("/course", router);
-  router.delete("/course/", course.deleteAll);
-  app.use('/course-t9', router);
-  //app.use("/course/course", router);
+  // router.delete("/course/", course.deleteAll);
+  // app.use('/course', router);
+  // //app.use("/course/course", router);
 
 };
 
